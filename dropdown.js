@@ -30,8 +30,7 @@ function DropDownList(props) {
     )
       .filter((checkbox) => checkbox.checked)
       .map((checkbox) => parseInt(checkbox.value));
-    // setSelected(checkedValues);
-    return checkedValues;
+    onChange(checkedValues);
   };
 
   function handleChange(event) {
@@ -79,9 +78,7 @@ function DropDownList(props) {
                 name={item.name}
                 checked={!multiple ? isChecked == item.id : null}
                 value={item.id}
-                onChange={
-                  !multiple ? handleChange : onChange(handleMultipleSelect())
-                }
+                onChange={!multiple ? handleChange : handleMultipleSelect}
               />
               <label className="dropdown-label">{item.name}</label>
               <br />
