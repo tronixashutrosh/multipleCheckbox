@@ -52,7 +52,10 @@ function DropDownList(props) {
       <div
         className="dropdown-list"
         onClick={() => {
-          setIsOpen(true);
+          setIsOpen(false);
+          if(!isOpen){
+            setIsOpen(true);
+          }
         }}
       >
         {showSelected ? selectedName : "Select"}
